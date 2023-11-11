@@ -919,6 +919,13 @@ a:focus {
   border-radius: 25px;
 }
 
+.so{
+ align-content: center;
+ align-items: center;
+}
+.si{
+  margin-top: 30px;
+}
 .info_section .contact_section button {
   border: none;
   display: inline-block;
@@ -928,7 +935,7 @@ a:focus {
   border-radius: 35px;
   color: #000000;
   margin-top: 35px;
-  margin-bottom: 35px;
+  margin-bottom: 65px;
 }
 
 .info_section .contact_section button:hover {
