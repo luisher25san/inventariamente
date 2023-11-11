@@ -928,6 +928,7 @@ a:focus {
   border-radius: 35px;
   color: #000000;
   margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .info_section .contact_section button:hover {
