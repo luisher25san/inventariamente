@@ -859,6 +859,23 @@ a:focus {
   background-position: 15px center;
 }
 
+.contenedor{
+  align-self: center;
+}
+
+.cuadradote {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+  align-items: center;
+ margin-left: 150px;
+  width: fit-content; /* Ajusta el tamaño según el contenido */
+  height: fit-content; /* Ajusta el tamaño según el contenido */
+  background-color: #4CAF50; /* Color verde */
+  box-shadow: 4px 4px 2px #888888; /* Efecto de sombra flotante */
+  margin-top: 10px; /* Espacio entre el título y el cuadrado */
+}
+
 .client_section .owl-carousel .owl-nav .owl-next {
   background-image: url(../images/next-arrow.png);
   background-color: #ffffff;
