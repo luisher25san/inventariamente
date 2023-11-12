@@ -1,0 +1,145 @@
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "inventario_api";
+
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de la Base de Datos</title>
+</head>
+<body>
+
+<h2>Información de Salidas_Mercancia</h2>
+<?php
+// Consulta SQL para obtener la información de Salidas_Mercancia
+$sql_salidas = "SELECT * FROM Salidas_Mercancia";
+$result_salidas = $conn->query($sql_salidas);
+
+echo "<table border='1'>
+    <tr>
+        <th>ID_Salida</th>
+        <th>ID_Producto</th>
+        <th>Fecha_Salida</th>
+        <th>Cantidad_Salida</th>
+        <th>ID_Proveedor</th>
+    </tr>";
+
+if ($result_salidas->num_rows > 0) {
+    while ($row = $result_salidas->fetch_assoc()) {
+        echo "<tr>
+            <td>" . $row["ID_Salida"] . "</td>
+            <td>" . $row["ID_Producto"] . "</td>
+            <td>" . $row["Fecha_Salida"] . "</td>
+            <td>" . $row["Cantidad_Salida"] . "</td>
+            <td>" . $row["ID_Proveedor"] . "</td>
+        </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 resultados encontrados";
+}
+?>
+
+<h2>Información de Proveedores</h2>
+<?php
+// Consulta SQL para obtener la información de Proveedores
+$sql_proveedores = "SELECT * FROM Proveedores";
+$result_proveedores = $conn->query($sql_proveedores);
+
+echo "<table border='1'>
+    <tr>
+        <th>ID_Proveedor</th>
+        <th>Nombre_Proveedor</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+    </tr>";
+
+if ($result_proveedores->num_rows > 0) {
+    while ($row = $result_proveedores->fetch_assoc()) {
+        echo "<tr>
+            <td>" . $row["ID_Proveedor"] . "</td>
+            <td>" . $row["Nombre_Proveedor"] . "</td>
+            <td>" . $row["Direccion"] . "</td>
+            <td>" . $row["Telefono"] . "</td>
+            <td>" . $row["Correo"] . "</td>
+        </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 resultados encontrados";
+}
+?>
+<button type="button" class="btn btn-primary" onclick="">Agregar Proovedor</button>
+<button type="button" class="btn btn-primary" onclick="">Modificar Proovedor</button>
+<button type="button" class="btn btn-primary" onclick="">Eliminar Proovedor</button>
+
+
+<h2>Información de Productos</h2>
+<?php
+// Consulta SQL para obtener la información de Productos
+$sql_productos = "SELECT * FROM Productos";
+$result_productos = $conn->query($sql_productos);
+
+echo "<table border='1'>
+    <tr>
+        <th>ID_Producto</th>
+        <th>Codigo_Producto</th>
+        <th>Nombre_Producto</th>
+        <th>Descripcion</th>
+        <th>Precio_Unitario</th>
+        <th>Stock_Actual</th>
+    </tr>";
+
+if ($result_productos->num_rows > 0) {
+    while ($row = $result_productos->fetch_assoc()) {
+        echo "<tr>
+            <td>" . $row["ID_Producto"] . "</td>
+            <td>" . $row["Codigo_Producto"] . "</td>
+            <td>" . $row["Nombre_Producto"] . "</td>
+            <td>" . $row["Descripcion"] . "</td>
+            <td>" . $row["Precio_Unitario"] . "</td>
+            <td>" . $row["Stock_Actual"] . "</td>
+        </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 resultados encontrados";
+}
+
+// Cerrar la conexión
+$conn->close();
+?>
+
+
+
+
+
+<button type="button" class="btn btn-primary" onclick="">Reportes</button>
+
+<button type="button" class="btn btn-primary" onclick="">Registrar ventas</button>
+
+<button type="button" class="btn btn-primary" onclick="">Reabastecer</button>
+
+
+
+
+
+
+
+</body>
+</html>
